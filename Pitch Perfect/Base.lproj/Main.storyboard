@@ -2,13 +2,14 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="pz0-mG-lCi">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Record-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModule="Pitch_Perfect" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="vXZ-lx-hvc" customClass="RecordSoundsViewController" customModule="Pitch_Perfect" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
@@ -39,7 +40,6 @@
                                 </state>
                                 <connections>
                                     <action selector="stopRecording:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="5Hn-GT-g5W"/>
-                                    <segue destination="eYn-ci-Fek" kind="show" id="n8s-SA-7Gm"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -59,12 +59,12 @@
                                 <exclude reference="VDC-mH-b6t"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="52d-4Y-hdX"/>
-                                <exclude reference="n5B-LD-kgd"/>
+                                <exclude reference="dXo-HY-9vT"/>
                                 <exclude reference="iUG-D5-Oc0"/>
                                 <exclude reference="mQg-wi-owI"/>
+                                <exclude reference="52d-4Y-hdX"/>
+                                <exclude reference="n5B-LD-kgd"/>
                                 <exclude reference="z48-qV-4UI"/>
-                                <exclude reference="dXo-HY-9vT"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -74,12 +74,12 @@
                                 <include reference="VDC-mH-b6t"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="52d-4Y-hdX"/>
-                                <include reference="n5B-LD-kgd"/>
+                                <include reference="dXo-HY-9vT"/>
                                 <include reference="iUG-D5-Oc0"/>
                                 <include reference="mQg-wi-owI"/>
+                                <include reference="52d-4Y-hdX"/>
+                                <include reference="n5B-LD-kgd"/>
                                 <include reference="z48-qV-4UI"/>
-                                <include reference="dXo-HY-9vT"/>
                             </mask>
                         </variation>
                     </view>
@@ -88,6 +88,7 @@
                         <outlet property="recordButton" destination="I7U-h9-1ll" id="p72-Bt-dmY"/>
                         <outlet property="recordingText" destination="baJ-67-IVk" id="roY-vC-rDu"/>
                         <outlet property="stopButton" destination="VDC-mH-b6t" id="CrU-vt-Xj9"/>
+                        <segue destination="eYn-ci-Fek" kind="show" identifier="stopRecording" id="7Eh-Ij-pwv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
@@ -103,6 +104,7 @@
                         <viewControllerLayoutGuide type="bottom" id="xNG-OU-bez"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Yue-LN-kfs">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UGj-qL-w4N">
@@ -149,12 +151,12 @@
                                 <exclude reference="EqZ-1J-S1v"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="oOw-cR-SbG"/>
+                                <exclude reference="Zb9-P3-qKw"/>
                                 <exclude reference="G1T-vU-z2O"/>
                                 <exclude reference="xA2-A9-kbz"/>
                                 <exclude reference="giO-h1-OuG"/>
                                 <exclude reference="uuz-j9-7OA"/>
-                                <exclude reference="Zb9-P3-qKw"/>
-                                <exclude reference="oOw-cR-SbG"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -164,12 +166,12 @@
                                 <include reference="EqZ-1J-S1v"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="oOw-cR-SbG"/>
+                                <include reference="Zb9-P3-qKw"/>
                                 <include reference="G1T-vU-z2O"/>
                                 <include reference="xA2-A9-kbz"/>
                                 <include reference="giO-h1-OuG"/>
                                 <include reference="uuz-j9-7OA"/>
-                                <include reference="Zb9-P3-qKw"/>
-                                <include reference="oOw-cR-SbG"/>
                             </mask>
                         </variation>
                     </view>

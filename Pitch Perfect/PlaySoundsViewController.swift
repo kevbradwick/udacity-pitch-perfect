@@ -13,6 +13,8 @@ class PlaySoundsViewController: UIViewController {
 
     var audioPlayer: AVAudioPlayer!
     
+    var receviedAudio: RecordedAudio!
+    
     @IBOutlet weak var stopButton: UIButton!
     
     override func viewDidLoad() {
@@ -23,13 +25,8 @@ class PlaySoundsViewController: UIViewController {
         
         stopButton.hidden = true
         
-        if let path = NSBundle.mainBundle().pathForResource("movie_quote", ofType: "mp3") {
-            let fileUrl = NSURL.fileURLWithPath(path)
-            audioPlayer = AVAudioPlayer(contentsOfURL: fileUrl, error: &error)
-            audioPlayer.enableRate = true
-        } else {
-            println(error)
-        }
+        audioPlayer = AVAudioPlayer(contentsOfURL: receviedAudio.filePathUrl, error: &error)
+        audioPlayer.enableRate = true
     }
 
     func playAudio(atSpeed speed: Float) {
