@@ -16,10 +16,10 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
     @IBOutlet weak var stopButton: UIButton!
     
     var audioRecorder: AVAudioRecorder!
-    
     var audioSession: AVAudioSession!
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         
         // a session will set the context by which this app will use Audio
@@ -29,12 +29,15 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
     
     override func viewWillAppear(animated: Bool) {
         stopButton.hidden = true
+        recordingText.text = "Tap to record"
     }
 
     @IBAction func startRecording(sender: UIButton) {
         recordingText.hidden = false
         stopButton.hidden = false
         recordButton.enabled = false
+        recordingText.text = "Recording"
+        recordingText.hidden = false
         
         // the path to the directory where files can be stored for this app
         let dirPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as String
@@ -56,7 +59,6 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
     }
     
     @IBAction func stopRecording(sender: UIButton) {
-        recordingText.hidden = true
         stopButton.hidden = true
         recordButton.enabled = true
         
@@ -69,9 +71,7 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
     func audioRecorderDidFinishRecording(recorder: AVAudioRecorder!, successfully flag: Bool) {
         
         if flag == true {
-            let recordedAudio = RecordedAudio()
-            recordedAudio.filePathUrl = recorder.url
-            recordedAudio.title = recorder.url.lastPathComponent
+            let recordedAudio = RecordedAudio(url: recorder.url)
             performSegueWithIdentifier("stopRecording", sender: recordedAudio)
         } else {
             println("Error finishing recording")
